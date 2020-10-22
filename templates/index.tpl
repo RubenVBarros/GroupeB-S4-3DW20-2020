@@ -2,6 +2,7 @@
 <div class="preloader">
 	<div class="preloader-top">
 		<div class="preloader-top-sun">
+		<!--  Chargement de l'animation du soleil -->
 			<div class="preloader-top-sun-bg"></div>
 			<div class="preloader-top-sun-line preloader-top-sun-line-0"></div>
 			<div class="preloader-top-sun-line preloader-top-sun-line-45"></div>
@@ -27,12 +28,14 @@
 
 	<section class="contenu">
 	    <h1>
-	    	{{_ville|capitalize}}, {{_ville.country|upper}} 
+			<!--  ajout du code postal ,{{_cp.country|upper}} (amélioration code) -->
+	    	{{_ville|capitalize}} 
 	    	<a href="http://maps.google.com/maps?q={{_ville.coord.lat}},{{_ville.coord.lon}}" class="lk" target="_blank" title="Voir sur une carte">
 	    		Voir sur une carte
 	    	</a>
 	    </h1>
-	    {% for journee in _journees_meteo 
+		<!-- On ajoute la fin qui manque %} -->
+	    {% for journee in _journees_meteo %} 
 	    	<div class="jour">
 	    		<div class="numero_jour">
 	    			<h2>Météo du {{journee.dt|date('d/m/Y')}}</h2>
@@ -67,4 +70,5 @@
 
 	</section>
 </div>
-{{ incle('bottom.tpl') }}
+<!-- ajout 'include' à la place de incle -->
+{{ include('bottom.tpl') }}
